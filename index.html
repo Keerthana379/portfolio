@@ -280,6 +280,17 @@
           }
         }
       </style>
+      <script>
+        function downloadPDF() {
+            var fileName = "keerthana__Resume.pdf"; // Replace with the actual PDF file name
+            var fileUrl = "keerthana__Resume.pdf"; // Replace with the actual PDF file URL
+      
+            var link = document.createElement("a");
+            link.href = fileUrl;
+            link.download = fileName;
+            link.click();
+          }
+      </script>
 </head>
 <body>
     <header>
@@ -304,7 +315,7 @@
                 <div>and I am a </div>
                 <span id="element"></span>
                 <div class="buttons">
-                    <button class="btn">Download Resume</button>
+                    <button class="btn" onclick="downloadPDF()">Download Resume</button>
                     <button class="btn"><a href="https://github.com/Keerthana379?igu=1">Visit Github</a></button>
                 </div>
             </div>
