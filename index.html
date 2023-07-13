@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keerthana's Portfolio Website</title>
+    
+    <link rel="icon" href="icon.ico">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/9fefd50ac3.js" crossorigin="anonymous"></script>
+
     <style>
         *{
             margin: 0;
@@ -73,6 +82,10 @@
             cursor: pointer;
             padding: 12px;
         }
+        .leftSection .buttons .btn a{
+            text-decoration: none;
+            color: white;
+        }
         .rigthSection{
             width: 80%;
         }
@@ -130,22 +143,143 @@
             background-color: rgb(18, 18, 62);
         }
         .footer{  
-            display: flex;
-            padding: 23px 123px;
-            justify-content: space-evenly;
+            padding:  0 123px;
         }
         .footer ul{
             list-style: none;
         }
-        .footer > div{
-            width: 123px;
+        .fa-io{
+            color: #EEEEEE;
+            margin: 10px;
+            padding: 2rem;
+        }
+        .fa-io:hover{
+            color: rgb(170, 107, 228);
         }
         footer .footer-rights{
             text-align:  center;
             color: gray;
             padding: 12px 0;
         }
+        .footer-second{
+            text-align:  center;
+            height: 100px;
+        }
+
+        .time-head{
+            margin: 15px 100px;
+        }
+        .timeline-section{
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
+        .timeline-items{
+            max-width: 1000px;
+            margin:auto;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .timeline-items::before{
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: #2f363e;
+            left: calc(50% - 1px);
+        }
+        .timeline-item{
+            margin-bottom: 40px;
+            width: 100%;
+            position: relative;
+        }
+        .timeline-item:last-child{
+            margin-bottom: 0;
+        }
+        .timeline-item:nth-child(odd){
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+        .timeline-item:nth-child(even){
+            padding-left: calc(50% + 30px);
+        }
+        .timeline-dot{
+            height: 16px;
+            width: 16px;
+            background-color: #eaa023;
+            position: absolute;
+            left: calc(50% - 8px);
+            border-radius: 50%;
+            top:10px;
+        }
+        .timeline-date{
+            font-size: 18px;
+            color: #eaa023;
+            margin:6px 0 15px;
+        }
+        .timeline-content{
+            background-color: #1e2167;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .timeline-content h3{
+            font-size: 20px;
+            color: #ffffff;
+            margin:0 0 10px;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+        .timeline-content p{
+            color: #c8c8c8;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+        }
+        
+        /* responsive */
+        @media(max-width: 767px){
+            .timeline-items::before{
+                left: 7px;
+            }
+            .timeline-item:nth-child(odd){
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even){
+                padding-left: 37px;
+            }
+            .timeline-dot{
+                left:0;
+            }
+        }
     </style>
+    <script>
+        // JavaScript code to add dynamic effects
+        document.addEventListener("DOMContentLoaded", function(event) {
+          // Get all the timeline items
+          var timelineItems = document.querySelectorAll(".timeline-item");
+    
+          // Loop through each timeline item
+          timelineItems.forEach(function(item, index) {
+            // Apply fade-in effect with a delay based on the item's index
+            item.style.opacity = 0;
+            item.style.animation = "fade-in 1s forwards";
+            item.style.animationDelay = index * 0.2 + "s";
+          });
+        });
+      </script>
+      <style>
+        /* CSS animations for fade-in effect */
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      </style>
 </head>
 <body>
     <header>
@@ -153,25 +287,25 @@
             <div class="left">Keerthana's Portfolio</div>
             <div class="right">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">About</a></li>
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#education">About</a></li>
                     <li><a href="/">Services</a></li>
                     <li><a href="/">Projects</a></li>
-                    <li><a href="/">Contact Me</a></li>
+                    <li><a href="#foot">Contact Me</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="firstSection">
+        <section class="firstSection" id="home-section">
             <div class="leftSection">
                 Hi, I'm <span class="purple">Keerthana</span>
                 <div>and I am a </div>
                 <span id="element"></span>
                 <div class="buttons">
                     <button class="btn">Download Resume</button>
-                    <button class="btn">Visit Github</button>
+                    <button class="btn"><a href="https://github.com/Keerthana379?igu=1">Visit Github</a></button>
                 </div>
             </div>
             <div class="rigthSection">
@@ -181,7 +315,50 @@
 
         <hr>
 
-        <section class="secondSection">
+        <section class="timeline-section" id="education">
+            <div class="time-head">
+                <span class="text-grey">My Educational background</span>
+                <h1>Education</h1>
+            </div>
+            <div class="box">
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020-2024</div>
+                        <div class="timeline-content">
+                            <h3>B.Tech</h3>
+                            <p>Currently Pursuing my b.tech from CMRCET in CSE(AI&ML) Branch </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018-2020</div>
+                        <div class="timeline-content">
+                            <h3>Intermediate</h3>
+                            <p>Completed my intermediate from Page Jr College with 97.2% Aggregate </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2017-18</div>
+                        <div class="timeline-content">
+                            <h3>SSC</h3>
+                            <p>I have finished my SSC from SVS High School with 9.7 CGPA. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2008-2016</div>
+                        <div class="timeline-content">
+                            <h3>Primary Education</h3>
+                            <p>Did my primary Education from VMHS. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="secondSection">
             <span class="text-grey">What I have done so far</span>
             <h1>Past Experience</h1>
 
@@ -265,34 +442,27 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <footer>
-        <div class="footer">
-            <div class="footer-first">
-                Keerthana's Portfolio
-            </div>
+        <div class="footer" id="foot">
             <div class="footer-second">
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Home</a></li>
-                </ul>
+                <a href="https://github.com/Keerthana379?igu=1"><i class="fa-brands fa-github fa-io"></i></a>
+                <a href="https://www.linkedin.com/in/keerthana-reddy-90a131226/"><i class="fa-brands fa-linkedin fa-io"></i></a>
+                <a href="https://www.instagram.com/_mary_keerthana/"><i class="fa-brands fa-instagram fa-io"></i></a>
+                <a href="https://twitter.com/keerthana379"><i class="fa-brands fa-twitter fa-io"></i></a>
+                <a href="https://twitter.com/keerthana379"><i class="fa-brands fa-facebook fa-io"></i></a>
             </div>
-            <div class="footer-third"></div>
-            <div class="footer-fourth"></div>
         </div>
         <div class="footer-rights">
-            Copyright &#169; www.keerthanasportfolio.com | All rights reserved
+            Copyright &#169; keerthana Reddy's | All rights reserved
         </div>
     </footer>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
-          strings: ['Web Developer', '&amp; a UI/UX Developer', 'Web Designer'],
+          strings: ['Web Developer', 'a UI/UX Designer', 'a Coder'],
           typeSpeed: 50,
         });
       </script>
